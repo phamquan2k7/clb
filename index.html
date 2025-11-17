@@ -1,4 +1,4 @@
-e<!doctype html>
+<!doctype html>
 <html lang="vi">
 <head>
   <meta charset="utf-8" />
@@ -314,8 +314,8 @@ e<!doctype html>
           <h3>Đăng ký thành viên</h3>
           <form id="join-form" onsubmit="return handleJoin(event)">
             <div class="row">
-              <input id="name" type="text" placeholder="Họ và tên" required />
-              <input id="email" type="email" placeholder="Email" required />
+              <input id="name" name="name" type="text" placeholder="Họ và tên" required />
+              <input id="email" name="email" type="email" placeholder="Email" required />
             </div>
             <div style="margin-top:8px">
               <select id="interest">
@@ -327,7 +327,7 @@ e<!doctype html>
               </select>
             </div>
             <div style="margin-top:8px">
-              <textarea id="note" placeholder="Giới thiệu ngắn (tùy chọn)"></textarea>
+              <textarea id="note" name="note" placeholder="Giới thiệu ngắn (tùy chọn)"></textarea>
             </div>
             <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
               <button class="btn" type="submit">Gửi đăng ký</button>
@@ -367,9 +367,9 @@ e<!doctype html>
         <div class="card">
           <h3>Gửi tin nhắn</h3>
           <form id="contact-form" onsubmit="return handleContact(event)">
-            <input id="cname" type="text" placeholder="Họ và tên" required />
-            <input id="cemail" type="email" placeholder="Email" required style="margin-top:8px" />
-            <textarea id="cmsg" placeholder="Nội dung" style="margin-top:8px" required></textarea>
+            <input id="cname" name="cname" type="text" placeholder="Họ và tên" required />
+            <input id="cemail" name="cemail" type="email" placeholder="Email" required style="margin-top:8px" />
+            <textarea id="cmsg" name="cmsg" placeholder="Nội dung" style="margin-top:8px" required></textarea>
             <div style="margin-top:10px">
               <button class="btn" type="submit">Gửi</button>
             </div>
@@ -499,5 +499,4 @@ e<!doctype html>
     });
   </script>
 </body>
-
 </html>
