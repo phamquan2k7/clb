@@ -318,7 +318,7 @@
                   <input id="email" name="email" type="email" placeholder="Email" required />
                 </div>
               <div style="margin-top:8px">
-                <select id="interest" name="interest" required>
+                <select id="interest" name="interest" required >
                   <option value="">Lĩnh vực quan tâm</option>
                   <option value="Thiết kế">Thiết kế</option>
                   <option value="Công nghệ">Công nghệ</option>
@@ -424,7 +424,7 @@
           const submitButton = form.querySelector('button[type="submit"]');
 
           submitButton.disabled = true;
-          submitButton.textContent = 'Đang gửi...';
+          submitButton.textContent = 'Đang gửi...'; 
 
           const formData = new FormData(form);
           formData.append('formType', formType); // Thêm trường formType để Script biết xử lý sheet nào
