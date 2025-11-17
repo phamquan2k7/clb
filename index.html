@@ -367,9 +367,9 @@
           <div class="card">
             <h3>Gửi tin nhắn</h3>
             <form id="contact-form" onsubmit="return handleContact(event)">
-              <input id="cname" name="cname" type="text" placeholder="Họ và tên" required />
-              <input id="cemail" name="cemail" type="email" placeholder="Email" required style="margin-top:8px" />
-              <textarea id="cmsg" name="cmessage" placeholder="Nội dung" style="margin-top:8px" required></textarea>
+              <input id="cname" name="name" type="text" placeholder="Họ và tên" required />
+              <input id="cemail" name="email" type="email" placeholder="Email" required style="margin-top:8px" />
+              <textarea id="cmsg" name="message" placeholder="Nội dung" style="margin-top:8px" required></textarea>
               <div style="margin-top:10px">
                 <button class="btn" type="submit">Gửi</button>
               </div>
@@ -426,13 +426,13 @@
           submitButton.disabled = true;
           submitButton.textContent = 'Đang gửi...'; 
 
-          const formData = new FormData(form);
-          formData.append('formType', formType); // formType: Lien_he
-
-          await fetch(GOOGLE_SHEET_URL, {
+          const response = await fetch(GOOGLE_SHEET_URL, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData)
           });
+          const result = await response.json();
+
 
 
           try {
