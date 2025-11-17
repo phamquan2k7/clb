@@ -427,7 +427,13 @@
           submitButton.textContent = 'Đang gửi...'; 
 
           const formData = new FormData(form);
-          formData.append('formType', formType); // Thêm trường formType để Script biết xử lý sheet nào
+          formData.append('formType', formType); // formType: Lien_he
+
+          await fetch(GOOGLE_SHEET_URL, {
+            method: 'POST',
+            body: new URLSearchParams(formData)
+          });
+
 
           try {
               const response = await fetch(GOOGLE_SHEET_URL, {
