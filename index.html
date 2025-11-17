@@ -311,14 +311,14 @@
       <h2>Tham gia cùng chúng tôi</h2>
       <div class="grid cols-2" style="margin-top:12px">
         <div class="card">
-          <h3>Đăng ký thành viên</h3>
-          <form id="join-form" onsubmit="return handleJoin(event)">
-            <div class="row">
-              <input id="name" name="name" type="text" placeholder="Họ và tên" required />
-              <input id="email" name="email" type="email" placeholder="Email" required />
-            </div>
+            <h3>Đăng ký thành viên</h3>
+            <form id="join-form" onsubmit="return handleJoin(event)">
+              <div class="row">
+                <input id="name" name="name" type="text" placeholder="Họ và tên" required />
+                <input id="email" name="email" type="email" placeholder="Email" required />
+              </div>
             <div style="margin-top:8px">
-              <select id="interest">
+              <select id="interest" name="interest">
                 <option value="">Lĩnh vực quan tâm</option>
                 <option>Thiết kế</option>
                 <option>Công nghệ</option>
@@ -431,9 +431,11 @@
 
         try {
             const response = await fetch(GOOGLE_SHEET_URL, {
-                method: 'POST',
-                body: formData, // Gửi dữ liệu form
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: new URLSearchParams(formData)
             });
+
 
             const result = await response.json();
 
