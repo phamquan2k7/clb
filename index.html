@@ -426,11 +426,47 @@
           submitButton.disabled = true;
           submitButton.textContent = 'Đang gửi...'; 
 
-          const response = await fetch(GOOGLE_SHEET_URL, {
+          async function postData(formId, formType, successMessage) {
+    const form = document.getElementById(formId);
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Đang gửi...';
+
+    // Lấy tất cả dữ liệu từ form
+    const formData = new FormData(form);
+    formData.append('formType', formType); // Thêm formType để Apps Script biết sheet nào
+
+    // Convert FormData -> URLSearchParams để gửi POST
+    const params = new URLSearchParams();
+    for (const pair of formData.entries()) {
+        params.append(pair[0], pair[1]);
+    }
+
+    try {
+        const response = await fetch(GOOGLE_SHEET_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData)
-          });
+            body: params
+        });
+
+        const result = await response.json();
+
+        if (result.status === 'success') {
+            alert(successMessage);
+            form.reset();
+        } else {
+            alert('Lỗi khi gửi dữ liệu: ' + result.message);
+        }
+    } catch (error) {
+        alert('Lỗi kết nối: Không thể gửi dữ liệu. Vui lòng thử lại sau.');
+        console.error('Fetch error:', error);
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = formType === 'Lien_he' ? 'Gửi' : 'Gửi đăng ký';
+    }
+}
+
           const result = await response.json();
 
 
