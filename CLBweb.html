@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SEMICONDUCTOR CLUB — Trang chủ</title>
+  <meta name="description" content="Trang chính thức của Câu Lạc Bộ Sáng Tạo: sự kiện, thành viên, ảnh, liên hệ." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ----------------------------------------------- */
+    /* --- CÁC BIẾN CSS MỚI CHO PHONG CÁCH NEON/TECH --- */
+    /* ----------------------------------------------- */
+    :root{
+      --accent:#4af2f0; /* Xanh Neon sáng chính */
+      --accent-secondary:#89ffe4; /* Xanh Neon phụ */
+      --muted:#9bb3c6; /* Màu chữ mờ */
+      --bg:#071a33; /* Nền tối đậm */
+      --bg-dark:#021124; /* Nền rất tối cho header */
+      --card:#1e3052; /* Màu card đậm hơn */
+      --radius:12px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    /* Chỉnh màu chữ mặc định sang màu sáng (muted) */
+    body{margin:0;background:var(--bg);color:var(--muted);line-height:1.6}
+    
+    /* ----------------------------------------------- */
+    /* ------------ HEADER & LOGO (NEON) ------------- */
+    /* ----------------------------------------------- */
+    header{
+      background:var(--bg-dark); /* Nền header tối */
+      backdrop-filter:saturate(120%);
+      position:sticky;
+      top:0;z-index:40;
+      border-bottom:1px solid rgba(74, 242, 240, 0.2); /* Neon border */
+    }
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    nav{display:flex;align-items:center;gap:18px;justify-content:space-between}
+    
+    /* Logo / Tên CLB */
+    .brand-new h1.neon-title {
+        margin: 0;
+        font-family: 'Chakra Petch', sans-serif;
+        font-size: 32px;
+        color: var(--accent);
+        text-shadow: 0 0 8px var(--accent), 0 0 15px rgba(74, 242, 240, 0.7); /* Hiệu ứng Neon */
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        line-height: 1.1;
+    }
+    .brand-new p.neon-tagline {
+        margin: 4px 0 0;
+        font-size: 14px;
+        color: var(--muted);
+        letter-spacing: 1px;
+    }
+
+    /* Navigation Links */
+    .navlinks{display:flex;gap:12px}
+    .navlinks a{
+        color:var(--muted);
+        text-decoration:none;
+        font-weight:600;
+        padding:8px;
+        border-radius:8px;
+        transition: color 0.2s, text-shadow 0.2s;
+    }
+    .navlinks a:hover{
+        color:var(--accent);
+        text-shadow: 0 0 5px var(--accent); /* Neon hover */
+    }
+
+    /* ----------------------------------------------- */
+    /* ------------------- HERO SECTION ------------------ */
+    /* ----------------------------------------------- */
+    .hero{display:grid;grid-template-columns:1fr;gap:20px;padding:56px 0}
+    
+    /* Hero Card - Đổi nền trắng sang nền tối */
+    .hero-card{
+      background:var(--card);
+      padding:28px;
+      border-radius:var(--radius);
+      box-shadow:0 6px 18px rgba(2,6,23,0.3), 0 0 15px rgba(74, 242, 240, 0.1); 
+      color: var(--text-light); /* Chữ sáng trên nền tối */
+    }
+    .eyebrow{
+        display:inline-block;
+        background:rgba(74, 242, 240, 0.1); 
+        color:var(--accent);
+        padding:6px 10px;
+        border-radius:999px;
+        font-weight:700;
+        font-size:13px;
+        border: 1px solid rgba(74, 242, 240, 0.3);
+    }
+    .hero h1{
+        margin:10px 0 6px;
+        font-size:32px;
+        color: var(--accent-secondary); /* Tiêu đề hero sáng */
+        font-family: 'Chakra Petch', sans-serif;
+    }
+    .hero p.lead{
+        color:var(--muted);
+        margin:0 0 16px;
+    }
+    
+    /* Buttons */
+    .btn{
+        background:var(--accent);
+        color:var(--bg-dark); /* Màu chữ tối trên nút sáng */
+        padding:11px 16px;
+        border-radius:10px;
+        text-decoration:none;
+        font-weight:800;
+        transition: all 0.2s ease;
+    }
+    .btn:hover{
+        background:var(--accent-secondary);
+        box-shadow: 0 0 15px var(--accent);
+    }
+    .btn.ghost{
+        background:transparent;
+        border:1.5px solid var(--accent);
+        color:var(--accent);
+    }
+    .btn.ghost:hover{
+        background:rgba(74, 242, 240, 0.1);
+        box-shadow: 0 0 15px rgba(74, 242, 240, 0.5);
+    }
+
+    /* Sections */
+    section{padding:40px 0}
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    
+    /* Card Chung */
+    .card{
+        background:var(--card);
+        color: var(--text-light); /* Chữ sáng trên card tối */
+        padding:18px;
+        border-radius:12px;
+        box-shadow:0 6px 18px rgba(2,6,23,0.3);
+    }
+    
+    /* Tiêu đề trong Section */
+    h2, h3, h4 { color: var(--accent-secondary); font-family: 'Chakra Petch', sans-serif; }
+    
+    .event-date{
+        font-weight:800;
+        color:var(--accent);
+        font-size:12px;
+        text-shadow: 0 0 3px var(--accent); /* Neon nhẹ cho ngày tháng */
+    }
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:8px;opacity:0.8;transition:opacity 0.2s}
+    .gallery img:hover{opacity:1}
+
+    /* Forms */
+    form .row{display:flex;gap:12px;flex-wrap:wrap}
+    input,textarea,select{
+        width:100%;
+        padding:12px;
+        border-radius:10px;
+        border:1px solid rgba(74, 242, 240, 0.3); /* Border neon */
+        background:var(--bg-dark); /* Nền input tối */
+        color: var(--text-light);
+    }
+    textarea{min-height:110px}
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{padding:28px 0;color:var(--muted);background:var(--bg-dark)}
+
+    /* Responsive */
+    @media(min-width:800px){
+      .hero{grid-template-columns:1fr 420px;align-items:center}
+      .gallery img{height:140px}
+    }
+    @media(max-width:600px){
+      .navlinks{display:none}
+      .grid.cols-3{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary">
+        <div class="brand-new">
+          <h1 class="neon-title">SEMICONDUCTOR CLUB</h1>
+          <p class="neon-tagline">Innovation & Fabrication</p>
+        </div>
+        <div class="navlinks" role="navigation" aria-label="Trang">
+          <a href="#home">Trang chủ</a>
+          <a href="#about">Giới thiệu</a>
+          <a href="#events">Sự kiện</a>
+          <a href="#members">Thành viên</a>
+          <a href="#contact">Liên hệ</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">Mùa hoạt động 2025</span>
+        <h1>Chào mừng đến với Câu Lạc Bộ</h1>
+        <p class="lead">Nơi các bạn trẻ gặp gỡ, chia sẻ ý tưởng, thực hiện dự án và tổ chức sự kiện định kỳ về công nghệ, thiết kế và khởi nghiệp.</p>
+        <div class="cta-row">
+          <a class="btn" href="#events">Xem sự kiện</a>
+          <a class="btn ghost" href="#members">Tham gia ngay</a>
+        </div>
+      </div>
+
+      <aside class="card" aria-labelledby="upcoming-title">
+        <h3 id="upcoming-title">Sự kiện sắp tới</h3>
+        <div style="margin-top:12px;display:grid;gap:12px">
+          <div class="card" style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Workshop: Thiết kế UI cơ bản</div>
+              <div class="small">Giảng viên: Nguyễn A — Ứng dụng thiết kế nhanh</div>
+            </div>
+            <div style="text-align:right">
+              <div class="event-date">28/11/2025</div>
+              <div class="small">Hà Nội</div>
+            </div>
+          </div>
+
+          <div class="card" style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Hackathon nội bộ</div>
+              <div class="small">Đội nhóm 4-6 người — Ý tưởng & triển khai</div>
+            </div>
+            <div style="text-align:right">
+              <div class="event-date">05/12/2025</div>
+              <div class="small">Online / Offline</div>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+    </section>
+
+    <section id="about">
+      <div class="grid cols-2">
+        <div class="card">
+          <h2>Về chúng tôi</h2>
+          <p class="small">Câu Lạc Bộ Sáng Tạo thành lập năm 2020, tập hợp sinh viên và chuyên gia quan tâm tới công nghệ, thiết kế, khởi nghiệp. Chúng tôi tổ chức workshop, meetup, dự án cộng đồng và hỗ trợ các thành viên phát triển kỹ năng.</p>
+          <ul>
+            <li>Buổi chia sẻ hàng tuần</li>
+            <li>Hỗ trợ mentor cho dự án</li>
+            <li>Sân chơi hackathon & showcase</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Tầm nhìn & Sứ mệnh</h3>
+          <p class="small">Trở thành môi trường sáng tạo giúp mọi người kết nối, thử nghiệm và biến ý tưởng thành sản phẩm có giá trị.</p>
+          <div style="margin-top:10px">
+            <strong>Liên hệ ban tổ chức:</strong>
+            <div class="small">email: info@club.example • zalo: 0123 456 789</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="events">
+      <h2>Sự kiện</h2>
+      <div class="grid cols-3" style="margin-top:12px">
+        <article class="card">
+          <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+            <div>
+              <h4>Mini-talk: Kỹ thuật phỏng vấn</h4>
+              <p class="small">Bí quyết trình bày — CV — Mẹo trả lời</p>
+            </div>
+            <div class="event-date">10/12/2025</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+            <div>
+              <h4>Design Sprint</h4>
+              <p class="small">Sáng tạo & thử nghiệm 48 giờ</p>
+            </div>
+            <div class="event-date">18/12/2025</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+            <div>
+              <h4>Buổi kết nối doanh nghiệp</h4>
+              <p class="small">Gặp gỡ nhà tuyển dụng & mentor</p>
+            </div>
+            <div class="event-date">22/12/2025</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="members">
+      <h2>Tham gia cùng chúng tôi</h2>
+      <div class="grid cols-2" style="margin-top:12px">
+        <div class="card">
+          <h3>Đăng ký thành viên</h3>
+          <form id="join-form" onsubmit="return handleJoin(event)">
+            <div class="row">
+              <input id="name" type="text" placeholder="Họ và tên" required />
+              <input id="email" type="email" placeholder="Email" required />
+            </div>
+            <div style="margin-top:8px">
+              <select id="interest">
+                <option value="">Lĩnh vực quan tâm</option>
+                <option>Thiết kế</option>
+                <option>Công nghệ</option>
+                <option>Khởi nghiệp</option>
+                <option>Marketing</option>
+              </select>
+            </div>
+            <div style="margin-top:8px">
+              <textarea id="note" placeholder="Giới thiệu ngắn (tùy chọn)"></textarea>
+            </div>
+            <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+              <button class="btn" type="submit">Gửi đăng ký</button>
+              <div class="small">Chúng tôi sẽ liên hệ trong 3-5 ngày làm việc.</div>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Quyền lợi thành viên</h3>
+          <ul class="small">
+            <li>Tham gia miễn phí workshop nội bộ</li>
+            <li>Ưu tiên tuyển mentor & cơ hội dự án</li>
+            <li>Nhận tài liệu, template & recordings</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2>Ảnh hoạt động</h2>
+      <div class="card" style="margin-top:12px">
+        <div class="gallery">
+          <img src="https://picsum.photos/seed/club1/800/600" alt="Hoạt động 1" />
+          <img src="https://picsum.photos/seed/club2/800/600" alt="Hoạt động 2" />
+          <img src="https://picsum.photos/seed/club3/800/600" alt="Hoạt động 3" />
+          <img src="https://picsum.photos/seed/club4/800/600" alt="Hoạt động 4" />
+          <img src="https://picsum.photos/seed/club5/800/600" alt="Hoạt động 5" />
+          <img src="https://picsum.photos/seed/club6/800/600" alt="Hoạt động 6" />
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Liên hệ</h2>
+      <div class="grid cols-2" style="margin-top:12px">
+        <div class="card">
+          <h3>Gửi tin nhắn</h3>
+          <form id="contact-form" onsubmit="return handleContact(event)">
+            <input id="cname" type="text" placeholder="Họ và tên" required />
+            <input id="cemail" type="email" placeholder="Email" required style="margin-top:8px" />
+            <textarea id="cmsg" placeholder="Nội dung" style="margin-top:8px" required></textarea>
+            <div style="margin-top:10px">
+              <button class="btn" type="submit">Gửi</button>
+            </div>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Thông tin</h3>
+          <p class="small"><strong>Địa chỉ:</strong> 123 Đường Mẫu, Quận Thử, Thành phố</p>
+          <p class="small"><strong>Email:</strong> info@club.example</p>
+          <p class="small"><strong>Điện thoại:</strong> 0123 456 789</p>
+          <div style="margin-top:12px">
+            <strong>Mạng xã hội</strong>
+            <div class="small">Facebook · Instagram · YouTube (thêm liên kết thực tế khi có)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+      <div class="small">© 2025 Câu Lạc Bộ Sáng Tạo — Bản quyền thuộc về CLB</div>
+      <div class="small">Thiết kế bởi đội: Ban Truyền Thông</div>
+    </div>
+  </footer>
+
+ <script>
+    // ----------------------------------------------------
+    // *** THAY THẾ URL NÀY BẰNG URL WEB APP CỦA BẠN ***
+    // ----------------------------------------------------
+    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwJUUviEJraeQKuRoyEnMwc3ccs2IEyjiaXA1m6eok5B9L1MOnDs6_G-fyG9X3oR75RrQ/exec'; 
+    // VÍ DỤ: 'https://script.google.com/macros/s/AKfycbyJ9K_wRk.../exec'
+    // ----------------------------------------------------
+
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.startsWith('#')){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    });
+
+    // Hàm chung để gửi dữ liệu
+    async function postData(formId, formType, successMessage) {
+        const form = document.getElementById(formId);
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Đang gửi...';
+
+        const formData = new FormData(form);
+        formData.append('formType', formType); // Thêm trường formType để Script biết xử lý sheet nào
+
+        try {
+            const response = await fetch(GOOGLE_SHEET_URL, {
+                method: 'POST',
+                body: formData, // Gửi dữ liệu form
+            });
+
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                alert(successMessage);
+                form.reset();
+            } else {
+                alert('Lỗi khi gửi dữ liệu: ' + result.message);
+            }
+        } catch (error) {
+            alert('Lỗi kết nối: Không thể gửi dữ liệu. Vui lòng thử lại sau.');
+            console.error('Fetch error:', error);
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Gửi'; // Hoặc 'Gửi đăng ký'
+        }
+    }
+
+
+    // ----------------------------------------------------
+    // *** CÁC HÀM XỬ LÝ FORM MỚI ***
+    // ----------------------------------------------------
+
+    // Xử lý Form Đăng ký thành viên
+    function handleJoin(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const interest = document.getElementById('interest').value.trim();
+      const note = document.getElementById('note').value.trim();
+
+      if(!name || !email){
+          alert('Vui lòng điền Họ tên và Email.');
+          return false;
+      }
+      
+      // Gửi dữ liệu form Đăng ký thành viên (Sheet: Thanh_vien)
+      postData('join-form', 'Thanh_vien', 'Cảm ơn ' + name + '! Đăng ký của bạn đã được ghi nhận.');
+      return false;
+    }
+
+    // Xử lý Form Liên hệ
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('cname').value.trim();
+      const email = document.getElementById('cemail').value.trim();
+      const msg = document.getElementById('cmsg').value.trim();
+      
+      if(!name || !email || !msg){
+          alert('Vui lòng điền đầy đủ các trường.');
+          return false;
+      }
+
+      // Gửi dữ liệu form Liên hệ (Sheet: Lien_he)
+      postData('contact-form', 'Lien_he', 'Cảm ơn! Tin nhắn đã được gửi và được lưu lại.');
+      return false;
+    }
+
+
+    // Accessibility: focus outline for keyboard users
+    document.body.addEventListener('keydown', function(e){
+      if(e.key === 'Tab') document.documentElement.style.scrollBehavior = 'smooth';
+    });
+  </script>
+</body>
+</html>
